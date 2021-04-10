@@ -1,28 +1,27 @@
 package panandafog.wholesale_company.controller;
 
-import panandafog.wholesale_company.model.Good;
-import panandafog.wholesale_company.service.GoodService;
+import panandafog.wholesale_company.model.Sale;
+import panandafog.wholesale_company.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/goods")
-public class GoodsRestController {
+@RequestMapping("/sales")
+public class SalesRestController {
     @Autowired
-    private GoodService service;
+    private SaleService service;
 
     @RequestMapping(value = "/get/all", method = RequestMethod.GET)
-    public List<Good> getAllGoods() {
-        List<Good> tmp = null;
+    public List<Sale> getAllSales() {
+        List<Sale> tmp = null;
         try {
             tmp = service.getAll();
         } catch (Exception ex) {
-            System.out.println("Exception in get all goods");
+            System.out.println("Exception in get all sales");
             System.out.println(ex.getMessage());
         }
         return tmp;
     }
 }
-

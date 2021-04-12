@@ -13,6 +13,14 @@ public class Warehouse2Service {
     @Autowired
     private Warehouse2Repository repository;
 
+    public void deleteById(long id) {
+        repository.deleteById(id);
+    }
+
+    public void save(Rack2 rack) {
+        repository.save(rack);
+    }
+
     public List<Rack2> getAll() {
         List<Rack2> tmp = new ArrayList<>();
         repository.findAll().forEach(tmp::add);

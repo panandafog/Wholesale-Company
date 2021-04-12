@@ -13,9 +13,13 @@ public class GoodService {
     @Autowired
     private GoodRepository repository;
 
-//    public Good getByName(String name) {
-//        return repository.findByName(name);
-//    }
+    public void deleteById(long id) {
+        repository.deleteById(id);
+    }
+
+    public void save(Good good) {
+        repository.save(good);
+    }
 
     public List<Good> getAll() {
         List<Good> tmp = new ArrayList<>();

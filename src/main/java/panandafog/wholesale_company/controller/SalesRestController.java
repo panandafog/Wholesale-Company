@@ -30,9 +30,11 @@ public class SalesRestController {
 
     @PostMapping(value = "/save")
     public SimpleResponse addOrUpdateGood(@RequestBody Sale sale) {
+        service.save(sale);
         try {
             service.save(sale);
         } catch (DataIntegrityViolationException ex) {
+            System.out.println(ex.getMessage());
             return new SimpleResponse(false, "Такой товар уже существует");
         } catch (Exception ex) {
             return new SimpleResponse(false, "Неизвестная ошибка");

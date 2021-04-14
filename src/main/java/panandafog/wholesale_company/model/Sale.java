@@ -18,8 +18,6 @@ public class Sale {
     @Temporal(TemporalType.DATE)
     @Column(name = "create_date", nullable = false)
     private Date createDate;
-    @Transient
-    private Long warehouseNumber;
 
     public Sale() {
     }
@@ -73,14 +71,6 @@ public class Sale {
 
     public void setCreate_date(Date createDate) {
         this.createDate = createDate;
-    }
-
-    public Long getWarehouse_number() {
-        return warehouseNumber;
-    }
-
-    public void setWarehouse_number(Long warehouseNumber) {
-        this.warehouseNumber = warehouseNumber;
     }
 }
 
